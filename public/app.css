@@ -1,0 +1,33 @@
+
+
+.thumbnail img{
+    width:100%;
+}
+
+.thumbnail {
+    padding:0;
+}
+
+.thumbnail .caption-full{
+    padding:10px;
+}
+
+.formDiv{
+    width:30%;
+    margin:0 auto;
+}
+
+.delete-form{
+    display:inline;
+}
+
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  .title{
+      width:50%;
+      margin:0 auto;
+      font-weight:bold;
+  }

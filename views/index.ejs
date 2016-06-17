@@ -1,0 +1,56 @@
+<% include partials/header%>
+
+
+
+
+  <div class="container">
+    <header class="jumbotron">
+        <!--this makes it responsive-->
+    <div class="container">       
+    <h1>Welcome to Yelp Campgrounds </h1>
+    <p>Want to go camping?Guess what you have come to the right place.Yelp camp offers
+       you a wide variety of camps to choose from.Happiness is just one click away!
+    </p>
+    <p>
+    
+    <a class="btn btn-primary btn-large" href="/index/new">Add New Campgrounds</a>
+
+    </p>
+    </div>
+    </header>
+   
+    
+   <div class="container">
+    <!--this is a bootstrap grid-->
+    <div class="row text-center">
+    <%campList.forEach(function(camp){%>
+    <!--this makes this part responsive-->
+   
+        <div class="col-md-3 col-sm-6"> 
+           
+            <div class="thumbnail">
+                <img src="<%=camp.image%>" id="images">
+                
+                 <div class="caption">
+                     <h4><%= camp.name%></h4>
+                 </div>
+                  
+                
+                   <!--sending the id of the selected camp.This id will ge sent as a parameter to the show page which
+                   displays the details of this selected camp-->
+               <a href="/index/<%=camp._id%>" class="btn btn-primary">Get Details</a>
+            </div>
+             
+                
+        </div>
+    
+    <% });%>
+</div>    
+
+</div>
+      
+    </div>
+    
+
+
+<%include partials/footer%>

@@ -1,0 +1,27 @@
+<% include ../partials/header%>
+
+     <div class="container">
+         <div class="row text-center">
+               <h3>Add new comments to <%=campData.name%></h3>     
+             <div class="formDiv">
+                   <form action="/index/<%=campData._id%>/comments" method="POST">
+                    
+                      
+                        <div class="form-group">
+                            
+                              <textArea name="comment[text]" class="form-control"placeholder="comments..."></textArea>
+                            
+                        </div>
+                        
+                          <button class="btn btn-primary btn-block">Submit Comments</button>
+                          
+                              <a href="/index/<%=campData._id%>">Go back</a>
+                      
+                   </form>
+             </div>
+         
+         </div>
+     
+     </div>
+     
+     <%include ../partials/footer%>

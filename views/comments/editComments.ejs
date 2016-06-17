@@ -1,0 +1,41 @@
+<% include ../partials/header%>
+
+
+
+   <div class="container text-center">
+       <h1>Edit your comments</h1>
+          <div class="row">
+              
+                 <div class="formDiv">
+                     
+                        <form action="/index/<%=campData._id%>/<%=campData.comments[0]._id%>/edit?_method=PUT" method="post" >
+                            
+                               <div class="form-group">
+                                 
+                    <input type="text" class="form-control" name="comment[text]" value="<%=campData.comments[0].text%>" >
+                                   
+                               </div>
+                               
+                               <div class="form-group">
+                                   
+                                   <button class="btn btn-success btn-block">Update</button>
+                                   
+                               </div>
+                            
+                            
+                        </form>
+                     
+                     
+                     
+                     
+                 </div>
+              
+              
+              
+          </div>
+       
+       
+       
+       
+       
+   </div>

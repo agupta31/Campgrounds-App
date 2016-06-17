@@ -1,0 +1,101 @@
+<%include partials/header%>
+
+<h1>Welcome to Information about your favourite Campground</h1>
+<a href="/index"><--View Camps</a>
+
+   <div class="container">
+       
+          <div class="row">
+                 <div class="col-md-3">
+                     <p class="lead">Yelp Camp</p>
+                         <div class="list-group">
+                             <li class="list-group-item active">Category 1</li>
+                             <li class="list-group-item">Category 2</li>
+                             <li class="list-group-item">Category 3</li>
+                         </div>
+                     
+                     
+                     
+                     </div>
+                     
+                     
+                         
+                <div class="col-md-9" >
+           
+                    <div class="thumbnail">
+                   
+                        <img class="img-responsive" src="<%=campData.image%>">
+                        <div class="caption-full">
+                            <p class="pull-right">$25/night</p>
+                            <h4><a href="/index"><%= campData.name%></a></h4>
+                            <p><%= campData.description %></p>
+                            <em><span>Created by <%=campData.campOwner.username%></span></em>
+                         
+                                <% if(currentUser && campData.campOwner.username===currentUser.username) {%>
+                            
+                                    <a href="/index/<%=campData._id%>/edit" class="btn btn-xs btn-warning">Edit</a>
+                                    <form action="/index/<%=campData._id%>/delete?_method=delete" method="post" class="delete-form">
+                                        
+                                    <button class="btn btn-xs">Delete</button>
+                                    
+                                  </form>
+                                  
+                                  <% } %>
+                     
+                        </div>
+                         
+                        
+                    </div>
+                    
+                    <div class="well">
+                           
+                        <div class="text-right">
+                            
+                            <a href="/index/<%=campData._id%>/comments/new" class="btn btn-success">Add New Comments</a>        
+                        </div>
+                        <hr/>
+                        
+                            <% campData.comments.forEach(function(commentData){%>
+                            
+                            <div class="row">
+                                <div class="col-md-12">
+                                     
+                                    
+                                      <strong><%= commentData.author.username%></strong>
+                                      <span class="pull-right">10 days ago</span>
+                                        <p><%=commentData.text%></p>
+                                     
+                  <% if(currentUser && commentData.author.username===currentUser.username){%>             
+                                              
+             <a href="/index/<%=campData._id%>/<%=campData.comments[0]._id%>/edit" class="btn btn-danger btn-xs">Edit</a>
+  <form action="/index/<%=campData._id%>/<%=campData.comments[0]._id%>/delete?_method=DELETE" method="POST" class="delete-form">
+      
+                                <button class="btn btn-warning btn-xs">Delete</button>
+                                                    
+                            </form>
+                            
+                            <% } %>
+                                            
+                                     
+                                </div>
+                                
+                            </div>    
+                               
+                        
+                   <% });%>
+                   
+                   
+                         
+           </div>         
+                    
+              
+    </div>
+       
+       
+   
+   
+   
+
+       
+        
+  <% include partials/footer%>
